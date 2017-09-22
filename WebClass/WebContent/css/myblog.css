@@ -1,0 +1,9 @@
+@CHARSET "EUC-KR";
+div.container{
+	padding-top: 30px;
+}
+
+*{
+	margin: 0px;
+    padding: 0px;
+}
