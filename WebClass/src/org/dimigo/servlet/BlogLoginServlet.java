@@ -22,14 +22,14 @@ import com.google.gson.JsonObject;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/bloglogin")
+public class BlogLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public BlogLoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//login.jsp 濡??ъ썙??
+		//login.jsp
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp");
 		rd.forward(request, response);
 	}
@@ -75,20 +75,19 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		
 		//// id pwd 정합성 체크
-		boolean result = true;
-		if(result)
+		if(id.equals("test@naver.com"))
 		{
 			
 			HttpSession session = request.getSession();
 			UserVo user = new UserVo();
 			
 			user.setId(id);
-			user.setName("홍길동");
-			user.setNickname("의적");
+			user.setName("최성원");
+			user.setNickname("주인");
 			
 			session.setAttribute("user", user);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/jsp/home.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/myblog.jsp");
 			rd.forward(request, response);
 		}
 		else
